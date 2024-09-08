@@ -11,6 +11,8 @@ username = sys.argv[1]
 
 user = g.get_user(username)
 
+repositories = user.get_repos()
+
 
 events = user.get_public_events()
 
@@ -19,3 +21,7 @@ for event in events:
     print(f"Repository: {event.repo.name}")
     print(f"Date and Time: {event.created_at}")
     print("--------")
+
+for repo in repositories:
+    print(f"Found a public repository: {repo.url}")
+print("--------")
